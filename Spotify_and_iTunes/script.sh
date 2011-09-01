@@ -52,22 +52,18 @@ end if
 
     if s_state = "play" then
         if i_state = "play" then
-            set output to "iTunes: " & i_track & " by " & i_artist & " (" & i_album & ") " & "Spotify: " & s_track & " by " & s_artist & " (" & s_album & ")"
+            set output to "Spotify: " & s_track & " by " & s_artist & " (" & s_album & ")\riTunes: " & i_track & " by " & i_artist & " (" & i_album & ")"
         else if i_state = "pause" then
-            set output to "iTunes: Paused. " & i_track & " by " & i_artist & " (" & i_album & ") " & "Spotify: " & s_track & " by " & s_artist & " (" & s_album & ")"
-        else if i_state = "stop" then
-            set output to "Spotify: " & s_track & " by " & s_artist & " (" & s_album & ")"
-        else if i_state = "" then
+            set output to "Spotify: " & s_track & " by " & s_artist & " (" & s_album & ")\riTunes: Paused." & i_track & " by " & i_artist & " (" & i_album & ")"
+        else if i_state = "stop" or i_state = "" then
             set output to "Spotify: " & s_track & " by " & s_artist & " (" & s_album & ")"
         end if
     else if s_state = "pause" then
         if i_state = "play" then
-            set output to "iTunes: " & i_track & " by " & i_artist & " (" & i_album & ") " & "Spotify: Paused. " & s_track & " by " & s_artist & " (" & s_album & ")"
+            set output to "iTunes: " & i_track & " by " & i_artist & " (" & i_album & ")\rSpotify: Paused. " & s_track & " by " & s_artist & " (" & s_album & ")"
         else if i_state = "pause" then
-            set output to "iTunes: Paused. " & i_track & " by " & i_artist & " (" & i_album & ") " & "Spotify: Paused. " & s_track & " by " & s_artist & " (" & s_album & ")"
-        else if i_state = "stop" then
-            set output to "Spotify: Paused. " & s_track & " by " & s_artist & " (" & s_album & ")"
-        else if i_state = "" then
+            set output to "iTunes: Paused. " & i_track & " by " & i_artist & " (" & i_album & ")\rSpotify: Paused. " & s_track & " by " & s_artist & " (" & s_album & ")"
+        else if i_state = "stop" or i_state = "" then
             set output to "Spotify: Paused. " & s_track & " by " & s_artist & " (" & s_album & ")"
         end if
     else if s_state = "stop" or s_state = "" then
